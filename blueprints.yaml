@@ -1,0 +1,32 @@
+name: Fresh Start
+slug: fresh-start
+type: theme
+version: 0.1.0
+description: None
+icon: rebel
+author:
+  name: Amelia
+  email: hello@amdesigned.com.au
+homepage: https://github.com/AmeliaMargaurite/grav-fresh-start_zip
+demo: http://demo.yoursite.com
+keywords: grav, theme, etc
+bugs: https://github.com/AmeliaMargaurite/grav-fresh-start_zipissues
+readme: https://github.com/AmeliaMargaurite/grav-fresh-start_zip/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: ">=1.6.0" }
+
+form:
+  validation: loose
+  fields:
+    dropdown.enabled:
+      type: toggle
+      label: Dropdown in Menu
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool

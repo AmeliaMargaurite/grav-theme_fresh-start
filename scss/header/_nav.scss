@@ -1,0 +1,89 @@
+header nav {
+    --mobile-text-color: hsl(var(--main-text-color));
+
+    & ul {
+        display: none;
+        column-gap: 1.6rem;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        justify-content: space-around;
+        padding: 0;
+
+        & li {
+            list-style: none;
+
+            a {
+                position: relative;
+                font-size: 2.4rem;
+                text-transform: uppercase;
+                font-weight: 600;
+                text-decoration: none;
+                color: var(--mobile-text-color);
+
+                &:after {
+                    position: absolute;
+                    content: "";
+                    height: 0.1em;
+                    width: 100%;
+                    left: 0;
+                    bottom: 0;
+                }
+
+                &.current:after {
+                    background: hsl(var(--highlight));
+                }
+
+                &:not(.active):hover {
+                    &:after {
+                        background: hsl(var(--main-color), 42%);
+                    }
+                }
+            }
+
+            &.has-children:not(.open) {
+                ul {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &.open {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: hsl(var(--base), 0%, 0.98);
+        z-index: var(--menu-zIndex);
+        grid-template-rows: max-content auto;
+        padding: var(--page_padding);
+
+        ul {
+            display: flex;
+        }
+    }
+
+    @media (min-width: $wholeMenuMinWidth) {
+        justify-self: flex-end;
+        &,
+        &.open {
+            position: relative;
+            background: unset;
+            padding: initial;
+
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+
+                li a {
+                    font-size: 1.8rem;
+                    color: var(--main-text-color);
+                }
+            }
+        }
+    }
+}

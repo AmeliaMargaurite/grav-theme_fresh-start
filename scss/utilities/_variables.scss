@@ -1,0 +1,57 @@
+:root {
+    --base-h: 157;
+    --base: var(--base-h), 5%;
+    --warning: 0, 100%, 50%;
+
+    // COLOURS
+    --green: 120, 100%, 43%;
+    --red: 8, 100%, 60%;
+    // Z INDEXES
+    --below-menu-zIndex: 3;
+    --menu-zIndex: 5;
+    --menu-btn-zIndex: 10;
+
+    // PADDINGS
+    --page_padding: 3.2rem;
+    --input_padding: 0.8rem;
+
+    // BORDERS
+    --input_border: 1px solid hsl(var(--primary), 0.2);
+    --input_border_radius: 0.4rem;
+
+    &[color-mode="dark"] {
+        --main-text-color: var(--base), 85%;
+        --main-background-color: var(--base), 0%;
+        --body-bg: hsl(var(--base), 20%);
+        --highlight: calc(var(--base-h) - 120), 80%;
+        --highlight-2: calc(var(--base-h) + 120), 80%;
+        --text-color: hsl(var(--base), 100%, 0.8);
+        --blue500: 249, 56%, 45%;
+        --yellow500: 36, 100%, 51%;
+    }
+
+    &[color-mode="light"] {
+        --main-text-color: var(--base), 0%;
+        --main-background-color: var(--base), 100%;
+        --body-bg: hsl(var(--base), 98%);
+        --highlight: calc(var(--base-h) + 120), 70%;
+        --highlight-2: calc(var(--base-h) - 120), 80%;
+        --text-color: hsl(var(--base), 20%);
+        --blue500: 249, 56%, 23%;
+        --yellow500: 41, 100%, 57%;
+    }
+
+    --primary: var(--main-text-color);
+    --secondary: var(--main-background-color);
+}
+
+// BREAKPOINTS
+
+$xxsmall: 425px;
+$xsmall: 501px;
+$small: 768px;
+$smedium: 900px;
+$medium: 1024px;
+$large: 1440px;
+$xlarge: 2560px;
+$wholeMenuMinWidth: $small;

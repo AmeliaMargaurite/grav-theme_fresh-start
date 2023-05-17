@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="{{ (grav.language.getActive ?: grav.config.site.default_lang)|e }}" color-mode="dark">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e }} | {% endif %}{{ site.title|e }}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/metadata.html.twig' %}
+
+    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png')|e }}" />
+    <link rel="canonical" href="{{ page.canonical(true)|e }}" />
+{% endblock head %}
+
+{% block stylesheets %}
+    {# {% do assets.addCss('https://unpkg.com/purecss@1.0.0/build/pure-min.css', 100) %}
+    {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 99) %} #}
+    {% do assets.addCss('theme://css/custom.css', 98) %}
+{% endblock %}
+
+{% block javascripts %}
+    {# {% do assets.addJs('jquery', 100) %} #}
+    {% do assets.addJs('theme://js/common.js', {'type': 'module'}) %}
+{% endblock %}
+
+{% block assets deferred %}
+    {{ assets.css()|raw }}
+    {{ assets.js()|raw }}
+{% endblock %}
+</head>
+<body id="top" class="{{ page.header.body_classes|e }}">
+
+{% block header %}
+    <header class="header">
+        <a class="logo company-name" href="{{ home_url|e }}">
+            <i class="fa fa-rebel"></i>
+            {{ config.site.title|e }}
+        </a>
+        <button class="menu__button" id= 'hamburger', onclick='toggleMenu()' tabindex="0", aria-controls="main-menu", aria-label="Open the menu">
+            <span aria-hidden="true" focusable="false"> </span> 
+            <span aria-hidden="true" focusable="false"> </span> 
+            <span aria-hidden="true" focusable="false"> </span> 
+        </button>
+        {% block header_navigation %}
+        <nav class="main-nav" id="main-nav">
+            {% include 'partials/navigation.html.twig' %}
+        </nav>
+        {% endblock %}
+    </header>
+{% endblock %}
+
+{% block body %}
+    <main id="body">
+        {% block content %}{% endblock %}
+    </main>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        This is the footer
+        <ul>
+            <li>Things</li>
+            <li>Stuff</li>
+            <li>Other things</li>
+        </ul>
+    </footer>
+{% endblock %}
+
+
+</body>
+</html>

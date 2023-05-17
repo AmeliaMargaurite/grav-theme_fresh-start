@@ -1,0 +1,12 @@
+{% macro loop(page) %}
+    {% for p in page.children.visible %}
+        {% set current_page = (p.active or p.activeChild) ? 'selected' : '' %}
+            <li class="{{ current_page|e }}">
+                <a href="{{ p.url|e }}">
+                    {% if p.header.icon %}<i class="fa fa-{{ p.header.icon|e }}"></i>{% endif %}
+                    {{ p.menu|e }}
+                </a>
+            </li>
+    {% endfor %}
+{% endmacro %}
+
